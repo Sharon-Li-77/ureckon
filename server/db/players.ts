@@ -11,7 +11,7 @@ export async function addNewPlayer(newUser: string) {
 }
 
 export function getPlayer(id: number) {
-  return db('players').where('id', id).select()
+  return db('players').where('id', id).select().first()
 }
 
 export async function updatePlayerScore(id: number, score: number) {

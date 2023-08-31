@@ -40,9 +40,10 @@ router.patch('/score/:id', async (req, res) => {
   }
 })
 
-router.get('/', async (req, res) => {
+router.get('/:id', async (req, res) => {
+  const id = Number(req.params.id)
   try {
-    const data = await db.getAllPLayers()
+    const data = await db.getPlayer(id)
 
     res.json(data)
   } catch (error) {
