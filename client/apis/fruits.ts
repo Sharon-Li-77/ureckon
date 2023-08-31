@@ -26,7 +26,7 @@ export async function updateScoreforPlayer(
 }
 
 export async function addNewPLayer(playerName: string): Promise<void> {
-  await request.post(rootUrl).send(playerName)
+  await request.post(rootUrl).send({ name: playerName })
 }
 
 const categoryApiUrl = 'https://opentdb.com/api_category.php'
