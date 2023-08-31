@@ -1,10 +1,19 @@
 import request from 'superagent'
+import { Player } from '../../models/fruit'
 
 const rootUrl = '/api/v1'
 
-export function getFruits(): Promise<string[]> {
-  return request.get(rootUrl + '/fruits').then((res) => {
-    return res.body.fruits
+export function getAllPlayers(): Promise<Player[]> {
+  return request.get(rootUrl + '/players').then((res) => {
+    console.log('getAllPLayers api function', res.body)
+    return res.body.players
+  })
+}
+
+export function addNewPLayer() {
+  return request.post(rootUrl + '/players').then((res) => {
+    console.log('addNewOkayers api function', res.body)
+    return res.body.players
   })
 }
 

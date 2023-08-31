@@ -1,9 +1,10 @@
-export async function seed (knex) {
+export async function seed(knex) {
+  //for testing db
   // Deletes ALL existing entries
-  await knex('fruit').del()
+  await knex('players').del()
 
   // Inserts seed entries
-  await knex('fruit').insert([
+  await knex('players').insert([
     { id: 1, name: 'banana' },
     { id: 2, name: 'apple' },
     { id: 3, name: 'feijoa' },
