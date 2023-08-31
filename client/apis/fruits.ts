@@ -8,10 +8,10 @@ export function getFruits(): Promise<string[]> {
   })
 }
 
-const apiURL = 'https://opentdb.com/api.php?amount=10&category=11'
+const apiURL = 'https://opentdb.com/api.php?amount=1&category=11'
 
 export function getMovieQuestions() {
   return request.get(apiURL).then((res) => {
-    return res.body
+    return res.body.results as []
   })
 }
