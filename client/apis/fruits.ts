@@ -8,6 +8,23 @@ export async function getAllPlayers(): Promise<Player[]> {
   return response.body as Player[]
 }
 
+export async function getPlayer(id: number): Promise<Player> {
+  const response = await request.get(`${rootUrl}/${id}`)
+  return response.body as Player
+}
+
+export async function getPlayerScore(id: number): Promise<number> {
+  const response = await request.get(`${rootUrl}/score/${id}`)
+  return response.body as number
+}
+
+export async function updateScoreforPlayer(
+  id: number,
+  score: number,
+): Promise<void> {
+  await request.patch(`${rootUrl}/score/${id}`).send({ score })
+}
+
 export async function addNewPLayer(playerName: string): Promise<void> {
   await request.post(rootUrl).send(playerName)
 }

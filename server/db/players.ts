@@ -14,6 +14,10 @@ export function getPlayer(id: number) {
   return db('players').where('id', id).select().first()
 }
 
+export function getPlayerScore(id: number) {
+  return db('players').where('id', id).select('score').first()
+}
+
 export async function updatePlayerScore(id: number, score: number) {
   const currentScore = await db('players').where('id', id).pluck('score')
   console.log(currentScore)
