@@ -9,6 +9,7 @@ export function getFruits(): Promise<string[]> {
   })
 }
 
+
 const categoryApiUrl = 'https://opentdb.com/api_category.php'
 
 export async function fetchCategory(): Promise<Categories> {
