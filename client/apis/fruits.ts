@@ -16,7 +16,7 @@ export async function fetchCategory(): Promise<Categories> {
   return response.body
 }
 
-const triviaApiUrl = 'https://opentdb.com/api.php?amount=10&category='
+const triviaApiUrl = 'https://opentdb.com/api.php?amount=1&category='
 
 export async function fetchQuestions(id: number): Promise<Categories> {
   const response = await request.get(`${triviaApiUrl}${id}`)
