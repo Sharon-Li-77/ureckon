@@ -1,13 +1,18 @@
 import { useQuery } from '@tanstack/react-query'
-import { getMovieQuestions } from '../apis/fruits.ts'
+import { fetchQuestions } from '../apis/fruits.js'
+import { useParams } from 'react-router-dom'
 
 function Trivia() {
-  const { data } = useQuery(['movie'], getMovieQuestions)
+  const { id } = useParams()
+  const { data } = useQuery({
+    queryKey: ['questions'],
+    queryFn: () => fetchQuestions(Number(id)),
+  })
   console.log(data)
 
   return (
     <>
-      <h1>hello</h1>
+      <h1>Trivia</h1>
       {/* <div className="app">
         <h1>Fullstack Boilerplate - with Fruits!</h1>
         <ul>{data && data.map((fruit) => <li key={fruit}>{fruit}</li>)}</ul>

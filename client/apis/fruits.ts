@@ -9,14 +9,21 @@ export function getFruits(): Promise<string[]> {
   })
 }
 
-const categoryAPIUrl = 'https://opentdb.com/api_category.php'
+const categoryApiUrl = 'https://opentdb.com/api_category.php'
 
 export async function fetchCategory(): Promise<Categories> {
-  const response = await request.get(categoryAPIUrl)
+  const response = await request.get(categoryApiUrl)
   return response.body
 }
 
-const apiUrl = `https://opentdb.com/api.php?amount=10&category=10`
+const triviaApiUrl = 'https://opentdb.com/api.php?amount=10&category='
+
+export async function fetchQuestions(id: number): Promise<Categories> {
+  const response = await request.get(`${triviaApiUrl}${id}`)
+  return response.body
+}
+
+const apiUrl = 'https://opentdb.com/api.php?amount=10&category=10'
 
 export function getMovieQuestions() {
   return request.get(apiUrl).then((res) => {
