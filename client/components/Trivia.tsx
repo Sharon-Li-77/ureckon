@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { fetchQuestions } from '../apis/fruits.js'
 import { useParams } from 'react-router-dom'
+import he from 'he'
 
 function Trivia() {
   const { id } = useParams()
@@ -12,11 +13,15 @@ function Trivia() {
 
   return (
     <>
-      <h1>Trivia</h1>
-      {/* <div className="app">
-        <h1>Fullstack Boilerplate - with Fruits!</h1>
-        <ul>{data && data.map((fruit) => <li key={fruit}>{fruit}</li>)}</ul>
-      </div> */}
+      <div className="app">
+        <h1> Guess a movie name </h1>
+        <ul>
+          {data &&
+            data.map((p) => (
+              <li key={data.indexOf(p)}>{he.decode(p.question)}</li>
+            ))}
+        </ul>
+      </div>
     </>
   )
 }
