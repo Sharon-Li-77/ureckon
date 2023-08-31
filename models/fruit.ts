@@ -7,6 +7,12 @@ export interface FruitData {
   name: string
 }
 
+export interface Player {
+  id: number
+  name: string
+  score: number
+  highscore: number
+
 export interface Categories {
   trivia_categories: Array<{ id: number; name: string }>
 }
