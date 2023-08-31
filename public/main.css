@@ -1,0 +1,82 @@
+    body{
+    -webkit-animation-name: bodyabc;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;    
+    -webkit-animation-play-state: running;
+
+    animation-name: bodyabc;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;    
+    animation-play-state: running;        
+    }
+    
+    @keyframes bodyabc{
+        0% {
+            background-color: #451A8F;
+        }
+    
+        30% {
+            background-color: #EB660F;
+        }
+    
+        60% {
+            background-color: #E31C3D;
+        }
+    
+        90% {
+            background-color: #FFA603
+        }
+    
+        100% {
+            background-color: #1269CF;
+        }
+    }
+
+
+.catagory{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    list-style:none;
+    text-decoration: none;
+
+}
+
+.catagory-link{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    cursor: pointer;
+    width: 350px;
+    height: 135px;
+    background-image: linear-gradient(to top, #D8D9DB 0%, #fff 80%, #FDFDFD 100%);
+    border: 1px solid #99aed8;
+    transition: all 0.2s ease;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+    text-shadow: 0 1px #fff;
+    margin-left: 50px;
+}
+
+.catagory-link:hover{
+        box-shadow: 0 2px 3px 1px #FCFCFC, 0 3px 4px #D6D7D9, 0 -2px 2px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 3px #CECFD1;
+}
+
+.catagory-link:active {
+    box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+  }
+
+.catagory-link:focus {
+    box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+  }
+
+.catagory-choose{
+    text-align: center;
+}
+
