@@ -10,3 +10,7 @@ export interface FruitData {
 export interface Categories {
   trivia_categories: Array<{ id: number; name: string }>
 }
+
+export interface Questions {
+  results: Array<{ question: string }>
+}
