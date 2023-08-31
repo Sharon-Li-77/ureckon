@@ -7,3 +7,11 @@ export function getFruits(): Promise<string[]> {
     return res.body.fruits
   })
 }
+
+const apiURL = 'https://opentdb.com/api.php?amount=10&category=11'
+
+export function getMovieQuestions() {
+  return request.get(apiURL).then((res) => {
+    return res.body
+  })
+}
