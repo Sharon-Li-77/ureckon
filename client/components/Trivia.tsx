@@ -9,17 +9,42 @@ function Trivia() {
     queryKey: ['questions'],
     queryFn: () => fetchQuestions(Number(id)),
   })
-  console.log(data)
+  const qAndA = data?.results[0]
+  const question = qAndA?.question
+  const correctAnswer = qAndA?.correct_answer
+  const incorrect_answers = qAndA?.incorrect_answers
+
+  // function getRandomInt(max: number) {
+  //   return Math.floor(Math.random() * max)
+  // }
+  // const random = getRandomInt(Number(incorrect_answers?.length))
+  // const answerArray = incorrect_answers?.splice(random, 0, correctAnswer)
+
+  // console.log(answerArray)
 
   return (
     <>
       <div className="app">
-        <h1> Guess a movie name </h1>
+        <h1>{question}</h1>
         <ul>
-          {data &&
-            data.results.map((p, index) => (
-              <li key={index}>{he.decode(p.question)}</li>
+          {incorrect_answers &&
+            incorrect_answers.map((p, index) => (
+              <li key={index}>
+                <br />
+                <br />
+                <input type="radio" name="answer" id={p} value={p} />
+                <label htmlFor={p}>{he.decode(p)}</label>
+              </li>
             ))}
+          <br />
+          <br />
+          <input
+            type="radio"
+            name="answer"
+            id={correctAnswer}
+            value={correctAnswer}
+          />
+          <label htmlFor={correctAnswer}>{correctAnswer}</label>
         </ul>
       </div>
     </>

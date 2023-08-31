@@ -12,5 +12,9 @@ export interface Categories {
 }
 
 export interface Questions {
-  results: Array<{ question: string }>
+  results: Array<{
+    question: string
+    correct_answer: string
+    incorrect_answers: string[]
+  }>
 }
