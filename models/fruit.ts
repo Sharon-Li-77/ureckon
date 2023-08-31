@@ -6,3 +6,7 @@ export interface Fruit {
 export interface FruitData {
   name: string
 }
+
+export interface Categories {
+  trivia_categories: Array<{ id: number; name: string }>
+}
