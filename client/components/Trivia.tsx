@@ -17,8 +17,8 @@ function Trivia() {
         <h1> Guess a movie name </h1>
         <ul>
           {data &&
-            data.map((p) => (
-              <li key={data.indexOf(p)}>{he.decode(p.question)}</li>
+            data.results.map((p, index) => (
+              <li key={index}>{he.decode(p.question)}</li>
             ))}
         </ul>
       </div>
