@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import usePlayers from '../hooks/usePlayers'
 
 function Players() {
@@ -19,6 +20,8 @@ function Players() {
       </form>
       <h4>Current Players:</h4>
       {players && players.map((player) => <p key={player.id}>{player.name}</p>)}
+
+      <Link to="/categories"> Play </Link>
     </>
   )
 }
