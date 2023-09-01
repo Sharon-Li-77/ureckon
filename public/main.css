@@ -80,3 +80,32 @@
     text-align: center;
 }
 
+.trivia-answers{
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.home-button{
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    outline: none;
+    cursor: pointer;
+    width: 600px;
+    height: 300px;
+    background-image: linear-gradient(to top, #D8D9DB 0%, #fff 80%, #FDFDFD 100%);
+    border: 1px solid #99aed8;
+    transition: all 0.2s ease;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+    text-shadow: 0 1px #fff;
+    left: 34%;
+    top: 34%;
+}

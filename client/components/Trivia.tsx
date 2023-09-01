@@ -26,14 +26,14 @@ function Trivia() {
     <>
       <div className="app">
         <h1>{question}</h1>
-        <ul>
+        <ul className='trivia-answers'>
           {incorrect_answers &&
             incorrect_answers.map((p, index) => (
-              <li key={index}>
+              <li  key={index}>
                 <br />
                 <br />
                 <input type="radio" name="answer" id={p} value={p} />
-                <label htmlFor={p}>{he.decode(p)}</label>
+                <label htmlFor={p}><button>{he.decode(p)}</button></label>
               </li>
             ))}
           <br />
@@ -44,7 +44,7 @@ function Trivia() {
             id={correctAnswer}
             value={correctAnswer}
           />
-          <label htmlFor={correctAnswer}>{correctAnswer}</label>
+          <label htmlFor={correctAnswer}><button>{correctAnswer}</button></label>
         </ul>
       </div>
     </>

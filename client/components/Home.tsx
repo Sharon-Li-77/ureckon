@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 function Home() {
   return (
     <>
-      <h1>U Reckon?</h1>
-      <button>
-        <Link to="/categories"> Categories </Link>
+      <h1 className='catagory-choose'>U Reckon?</h1>
+      <button className='home-button'>
+        <Link to="/categories"> Play </Link>
       </button>
     </>
   )
