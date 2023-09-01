@@ -1,9 +1,14 @@
 import { useQuery } from '@tanstack/react-query'
 import { fetchQuestions } from '../apis/fruits.js'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useSearchParams } from 'react-router-dom'
 import he from 'he'
+import usePlayers from '../hooks/usePlayers.js'
+import { useState } from 'react'
 
 function Trivia() {
+  const players = usePlayers().players.data
+  const [searchParams, setSearchParams] = useSearchParams()
+  const [currentPlayer, setCurrentPlayer] = useState(0)
   const { id } = useParams()
   const { data } = useQuery({
     queryKey: ['questions'],
@@ -31,21 +36,31 @@ function Trivia() {
 
   const shuffledArray = shuffle(answerArray as string[])
 
+  function checkAnswer(e: React.FormEvent<HTMLFormElement>) {
+    const answer = searchParams.get('answer')
+    const result = answer === correctAnswer
+    console.log(answer)
+    console.log(result)
+  }
+
   return (
     <>
       <div className="app">
         <h1>{he.decode(question ?? '')}</h1>
-        <ul>
-          {shuffledArray &&
-            shuffledArray.map((p, index) => (
-              <li key={index}>
-                <br />
-                <br />
-                <input type="radio" name="answer" id={p} value={p} />
-                <label htmlFor={p}>{he.decode(p ?? '')}</label>
-              </li>
-            ))}
-        </ul>
+        <form onSubmit={checkAnswer}>
+          <ul>
+            {shuffledArray &&
+              shuffledArray.map((p, index) => (
+                <li key={index}>
+                  <br />
+                  <br />
+                  <input type="radio" name="answer" id={p} value={p} />
+                  <label htmlFor={p}>{he.decode(p ?? '')}</label>
+                </li>
+              ))}
+          </ul>
+          <button>Confirm your answer</button>
+        </form>
         <button>
           <Link to="/categories"> Categories</Link>
         </button>
