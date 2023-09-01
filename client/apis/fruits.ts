@@ -22,6 +22,7 @@ export async function updateScoreforPlayer(
   id: number,
   score: number,
 ): Promise<void> {
+  console.log('api hit')
   await request.patch(`${rootUrl}/score/${id}`).send({ score })
 }
 
