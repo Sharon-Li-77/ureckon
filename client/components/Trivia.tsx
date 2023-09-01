@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { fetchQuestions } from '../apis/fruits.js'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import he from 'he'
 
 function Trivia() {
@@ -46,6 +46,9 @@ function Trivia() {
               </li>
             ))}
         </ul>
+        <button>
+          <Link to="/categories"> Categories</Link>
+        </button>
       </div>
     </>
   )
