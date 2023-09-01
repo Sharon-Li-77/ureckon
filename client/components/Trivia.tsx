@@ -47,20 +47,19 @@ function Trivia() {
     <>
       <div className="app">
         <h1>{he.decode(question ?? '')}</h1>
-        <form onSubmit={checkAnswer}>
-          <ul>
-            {shuffledArray &&
-              shuffledArray.map((p, index) => (
-                <li key={index}>
-                  <br />
-                  <br />
-                  <input type="radio" name="answer" id={p} value={p} />
-                  <label htmlFor={p}>{he.decode(p ?? '')}</label>
-                </li>
-              ))}
-          </ul>
-          <button>Confirm your answer</button>
-        </form>
+        <ul className="trivia-answers">
+          {shuffledArray &&
+            shuffledArray.map((p, index) => (
+              <li key={index}>
+                <br />
+                <br />
+                <input type="radio" name="answer" id={p} value={p} />
+                <label htmlFor={p}>
+                  <button>{he.decode(p ?? '')}</button>
+                </label>
+              </li>
+            ))}
+        </ul>
         <button>
           <Link to="/categories"> Categories</Link>
         </button>
