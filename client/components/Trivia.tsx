@@ -9,6 +9,7 @@ function Trivia() {
     queryKey: ['questions'],
     queryFn: () => fetchQuestions(Number(id)),
   })
+
   const qAndA = data?.results[0]
   const question = qAndA?.question
   const correctAnswer = qAndA?.correct_answer
@@ -17,34 +18,33 @@ function Trivia() {
   // function getRandomInt(max: number) {
   //   return Math.floor(Math.random() * max)
   // }
-  // const random = getRandomInt(Number(incorrect_answers?.length))
-  // const answerArray = incorrect_answers?.splice(random, 0, correctAnswer)
 
-  // console.log(answerArray)
+  const answerArray = [
+    ...(incorrect_answers !== undefined ? incorrect_answers : []),
+    correctAnswer,
+  ]
+  console.log('all answers', answerArray)
+
+  const shuffle = (array: string[]) => {
+    return array.sort(() => Math.random() - 0.5)
+  }
+
+  const shuffledArray = shuffle(answerArray as string[])
 
   return (
     <>
       <div className="app">
-        <h1>{question}</h1>
+        <h1>{he.decode(question ?? '')}</h1>
         <ul>
-          {incorrect_answers &&
-            incorrect_answers.map((p, index) => (
+          {shuffledArray &&
+            shuffledArray.map((p, index) => (
               <li key={index}>
                 <br />
                 <br />
                 <input type="radio" name="answer" id={p} value={p} />
-                <label htmlFor={p}>{he.decode(p)}</label>
+                <label htmlFor={p}>{he.decode(p ?? '')}</label>
               </li>
             ))}
-          <br />
-          <br />
-          <input
-            type="radio"
-            name="answer"
-            id={correctAnswer}
-            value={correctAnswer}
-          />
-          <label htmlFor={correctAnswer}>{correctAnswer}</label>
         </ul>
       </div>
     </>
