@@ -34,17 +34,19 @@ function Trivia() {
   return (
     <>
       <div className="app">
+
         <h1>{he.decode(question ?? '')}</h1>
-        <ul>
+        <ul className='trivia-answers'>
           {shuffledArray &&
             shuffledArray.map((p, index) => (
               <li key={index}>
                 <br />
                 <br />
                 <input type="radio" name="answer" id={p} value={p} />
-                <label htmlFor={p}>{he.decode(p ?? '')}</label>
+              <label htmlFor={p}><button>{he.decode(p ?? '')}</button></label>
               </li>
             ))}
+          
         </ul>
         <button>
           <Link to="/categories"> Categories</Link>
